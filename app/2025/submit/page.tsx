@@ -30,15 +30,25 @@ export default function SubmitPage() {
     setBody(undefined);
 
     // if the data is good, send it
+    let status: Status | undefined = undefined;
     if (!error) {
       sendReport(context).then((value?: Response) => {
-        setStatus({ code: value?.status, text: value?.statusText });
+        // get the status
+        status = { code: value?.status, text: value?.statusText };
+        setStatus(status);
+
+        // clear if report was successful
+        if (status != undefined && status?.code == 200) {
+          context.clear();
+          setCommentary(context.commentary);
+        }
+
+        // return the body promise
         return value?.text();
       }).then((text?: string) => {
+        // get the body
         setBody(text);
       });
-      context.clear();
-      setCommentary(context.commentary);
     }
 
     // open the dialog to show the outcome

@@ -31,7 +31,7 @@ export class GameData2025 implements GameData {
     park: boolean = false;
     shallow: boolean = false;
     deep: boolean = false;
-    timeClimbedAt: number = 0;
+    timeClimbedAt: string = "";
 
     clear(): void {
         this.autoCoralLvl1 = 0;
@@ -53,7 +53,7 @@ export class GameData2025 implements GameData {
         this.park = false;
         this.shallow = false;
         this.deep = false;
-        this.timeClimbedAt = 0;
+        this.timeClimbedAt = "";
     }
 
     serialize(): object {
@@ -81,13 +81,13 @@ export class GameData2025 implements GameData {
                 "park": this.park,
                 "shallow": this.shallow,
                 "deep": this.deep,
-                "time_climbed_at": this.timeClimbedAt
+                "time_climbed_at": Number.parseInt(this.timeClimbedAt)
             }
         }
     }
 
     check(): boolean {
-        return true;
+        return this.timeClimbedAt.length > 0;
     }
 }
 
