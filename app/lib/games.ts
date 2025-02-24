@@ -4,7 +4,8 @@ export enum Game {
 
 export interface GameData {
     clear(): void,
-    serialize(): object
+    serialize(): object,
+    check(): boolean
 };
 
 export class GameData2025 implements GameData {
@@ -83,6 +84,10 @@ export class GameData2025 implements GameData {
                 "time_climbed_at": this.timeClimbedAt
             }
         }
+    }
+
+    check(): boolean {
+        return true;
     }
 }
 

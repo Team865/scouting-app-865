@@ -25,8 +25,8 @@ export class AppData {
 
     public getData() {
         switch (this.game) {
-        case Game.Reefscape2025:
-            return this.gameData as GameData2025;
+            case Game.Reefscape2025:
+                return this.gameData as GameData2025;
         }
     }
 
@@ -46,6 +46,7 @@ export class AppData {
             "team": this.team,
             "match_number": this.match,
             "alliance_position": this.position,
+            "commentary": this.commentary,
             "is_test": this.isTest
         };
 
@@ -57,6 +58,14 @@ export class AppData {
                 ...gameData
             }
         };
+    }
+
+    public check(): boolean {
+        return this.scouterName.length > 0 &&
+            this.team.length > 0 &&
+            this.match.length > 0 &&
+            this.position != AlliancePosition.None &&
+            this.gameData?.check();
     }
 };
 
