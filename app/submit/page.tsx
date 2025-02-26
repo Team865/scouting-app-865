@@ -5,6 +5,7 @@ import { AppContext } from "@/app/lib/context";
 import Button from "@/app/ui/Button";
 import TextField from "@/app/ui/TextField";
 import { Description, Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
+import Image from "next/image";
 import { useContext, useState } from "react";
 
 type Status = {
@@ -19,6 +20,17 @@ export default function SubmitPage() {
   const [body, setBody] = useState<string | undefined>(undefined);
   const [isOpen, setIsOpen] = useState(false);
   const [error, setError] = useState(false);
+  const [image, setImage] = useState(0);
+
+  const images = [
+    { person: "Mr. Hibbert", href: "/hibbert.jpg" },
+    //{person: "Simon", href: "simon.jpg"},
+    { person: "Mr. Franzen", href: "/tej2o1-01_d-joe_franzen-easter-egg-1.webp" },
+    { person: "Mr. Franzen", href: "/tej2o1-01_d-joe_franzen-easter-egg-2.webp" },
+    { person: "Mr. Franzen", href: "/tej2o1-01_d-joe_franzen-easter-egg-3.webp" },
+    { person: "Mr. Franzen", href: "/tej2o1-01_d-joe_franzen-easter-egg-4.webp" },
+    { person: "Mr. Franzen", href: "/tej2o1-01_d-joe_franzen-easter-egg-5.jpg" },
+  ]
 
   const send = () => {
     const error = !context.check();
@@ -28,6 +40,9 @@ export default function SubmitPage() {
     // clear status and body
     setStatus(undefined);
     setBody(undefined);
+
+    // pick a franzen image
+    setImage(Math.floor(Math.random() * 10) % (images.length - 1));
 
     // if the data is good, send it
     let status: Status | undefined = undefined;
@@ -70,15 +85,29 @@ export default function SubmitPage() {
           <div className="fixed inset-0 flex w-screen items-center justify-center p-4">
             <DialogPanel className="max-w-lg space-y-4 border border-gray-900 bg-[--background] p-4">
               <DialogTitle className="text-lg font-bold">Report{error ? " not" : ""} sent</DialogTitle>
-              <Description>{error ? "One or more required fields is empty" : ""}</Description>
-              {
-                // show the backend response in test mode
-                context.isTest && body != undefined && status != undefined ? (
-                  <p>
-                    Backend response: {status.code} {status.text}{status.code != 200 ? `: ${body}` : ""}
-                  </p>
-                ) : ""
-              }
+              <Description>
+                {error ?
+                  (<p>One or more required fields is empty</p>) :
+                  (<div>
+                    <p>
+                      {
+                        // show the backend response in test mode
+                        (context.isTest && body != undefined && status != undefined) ?
+                          `Backend response: ${status.code} ${status.text}${status.code != 200 ? body : ""}`
+                          : ""
+                      }
+                    </p>
+                    <p>
+                      {
+                        (body != undefined && status != undefined) ? "Data sent" : "Please wait for the data to send"
+                      }
+                    </p>
+                  </div>)}
+                <div>
+                  <a href="https://mfranzen.ca">{images[image].person}</a>
+                  <Image src={images[image].href} width={150} height={250} alt={images[image].person} />
+                </div>
+              </Description>
               <div className="flex gap-4">
                 <Button onClick={() => setIsOpen(false)}>OK</Button>
               </div>

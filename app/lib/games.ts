@@ -121,8 +121,7 @@ export const games: { [game in Game]: GameInfo } = {
         links: [
             { name: 'Auto', href: '/2025/auto' },
             { name: 'Teleop', href: '/2025/teleop' },
-            { name: 'Endgame', href: '/2025/endgame' },
-            { name: 'Submit', href: '/2025/submit' }
+            { name: 'Endgame', href: '/2025/endgame' }
         ],
         field: { normal: '/2025/field.png', flipped: '/2025/field_flipped.png' }
     },
