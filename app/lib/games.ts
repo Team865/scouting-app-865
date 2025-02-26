@@ -15,6 +15,7 @@ export class GameData2025 implements GameData {
     autoCoralLvl3: number = 0;
     autoCoralLvl4: number = 0;
     autoBarge: number = 0;
+	autoProcessor: number = 0;
     autoMobility: boolean = false;
 
     // teleop
@@ -39,7 +40,8 @@ export class GameData2025 implements GameData {
         this.autoCoralLvl3 = 0;
         this.autoCoralLvl4 = 0;
         this.autoBarge = 0;
-        this.autoMobility = false;
+		this.autoProcessor = 0;
+		this.autoMobility = false;
 
         this.teleopCoralLvl1 = 0;
         this.teleopCoralLvl2 = 0;
@@ -65,6 +67,7 @@ export class GameData2025 implements GameData {
                 "coral3": this.autoCoralLvl3,
                 "coral4": this.autoCoralLvl4,
                 "barge": this.autoBarge,
+				"processor": this.autoProcessor,
                 "mobility": this.autoMobility
             },
             "teleop": {
