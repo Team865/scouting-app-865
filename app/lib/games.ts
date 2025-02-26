@@ -23,7 +23,7 @@ export class GameData2025 implements GameData {
     teleopCoralLvl3: number = 0;
     teleopCoralLvl4: number = 0;
     teleopBarge: number = 0;
-    teleopAlgaeProcessor: number = 0;
+    teleopProcessor: number = 0;
     fouls: number = 0;
     defense: boolean = false;
 
@@ -46,7 +46,7 @@ export class GameData2025 implements GameData {
         this.teleopCoralLvl3 = 0;
         this.teleopCoralLvl4 = 0;
         this.teleopBarge = 0;
-        this.teleopAlgaeProcessor = 0;
+        this.teleopProcessor = 0;
         this.fouls = 0;
         this.defense = false;
 
@@ -73,7 +73,7 @@ export class GameData2025 implements GameData {
                 "coral3": this.teleopCoralLvl3,
                 "coral4": this.teleopCoralLvl4,
                 "barge": this.teleopBarge,
-                "algae_processor": this.teleopAlgaeProcessor,
+                "processor": this.teleopProcessor,
                 "fouls": this.fouls,
                 "defense": this.defense
             },
