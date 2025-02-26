@@ -104,7 +104,7 @@ export default function SubmitPage() {
                     </p>
                   </div>)}
                 <div>
-                  <a href="https://mfranzen.ca">{images[image].person}</a>
+                  <a href="https://mfranzen.ca" target="_blank">{images[image].person}</a>
                   <Image src={images[image].href} width={150} height={250} alt={images[image].person} />
                 </div>
               </Description>
