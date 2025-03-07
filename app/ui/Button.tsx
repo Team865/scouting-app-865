@@ -11,6 +11,6 @@ type Props = {
 
 export default function Button(props: Props) {
     return (
-        <HeadlessButton className={`bg-gray-600 hover:bg-gray-100 rounded-xl px-3 py-2 ${props.className}`} onClick={props.onClick}>{props.children}</HeadlessButton>
+        <HeadlessButton className={`bg-gray-600 hover:bg-gray-800 rounded-xl px-3 py-2 ${props.className}`} onClick={props.onClick}>{props.children}</HeadlessButton>
     )
 }

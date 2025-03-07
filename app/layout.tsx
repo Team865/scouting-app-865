@@ -30,7 +30,7 @@ export default function RootLayout({
   const context = useContext(AppContext);
   const [game, setGame] = useState(context.game);
 
-  const buttonClass = "bg-gray-600 hover:bg-gray-100 rounded-xl px-3 py-2 m-2";
+  const buttonClass = "bg-gray-600 hover:bg-gray-900 rounded-xl px-3 py-2 m-2";
 
   return (
     <html lang="en">
