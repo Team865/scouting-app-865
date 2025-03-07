@@ -20,6 +20,7 @@ export default function SubmitPage() {
   const [body, setBody] = useState<string | undefined>(undefined);
   const [isOpen, setIsOpen] = useState(false);
   const [error, setError] = useState(false);
+  const [backendError, setBackendError] = useState(false);
   const [image, setImage] = useState(0);
 
   const images = [
@@ -36,6 +37,7 @@ export default function SubmitPage() {
     const error = !context.check();
     // check the app data for errors
     setError(error);
+    setBackendError(false);
 
     // clear status and body
     setStatus(undefined);
@@ -56,6 +58,8 @@ export default function SubmitPage() {
         if (status != undefined && status?.code == 200) {
           context.clear();
           setCommentary(context.commentary);
+        } else {
+          setBackendError(true);
         }
 
         // return the body promise
@@ -84,7 +88,7 @@ export default function SubmitPage() {
         <Dialog open={isOpen} onClose={() => setIsOpen(false)} className="relative z-50">
           <div className="fixed inset-0 flex w-screen items-center justify-center p-4">
             <DialogPanel className="max-w-lg space-y-4 border border-gray-900 bg-[--background] p-4">
-              <DialogTitle className="text-lg font-bold">Report{error ? " not" : ""} sent</DialogTitle>
+              <DialogTitle className="text-lg font-bold">Report{(error || backendError) ? " not" : ""} sent</DialogTitle>
               <Description>
                 {error ?
                   (<p>One or more required fields is empty</p>) :
@@ -92,7 +96,7 @@ export default function SubmitPage() {
                     <p>
                       {
                         // show the backend response in test mode
-                        (context.isTest && body != undefined && status != undefined) ?
+                        ((context.isTest || backendError) && body != undefined && status != undefined) ?
                           `Backend response: ${status.code} ${status.text}${status.code != 200 ? body : ""}`
                           : ""
                       }
