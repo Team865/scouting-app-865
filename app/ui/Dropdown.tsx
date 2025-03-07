@@ -12,7 +12,7 @@ export default function Dropdown(props: Props) {
     return (
         <Menu>
             <MenuButton className={props.className} style={props.style}>{props.name}</MenuButton>
-            <MenuItems anchor={"top"} className={props.className}>
+            <MenuItems anchor={"top"}>
                 {props.children}
             </MenuItems>
         </Menu>

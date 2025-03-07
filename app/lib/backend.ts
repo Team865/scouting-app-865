@@ -8,6 +8,10 @@ export async function sendReport(data: AppData): Promise<Response | undefined> {
     const raw = data.serialize();
     const json = JSON.stringify(raw);
 
+    if (data.isTest) {
+        console.log(json);
+    }
+
     try {
         return await fetch(API_SEND, {
             method: "POST",

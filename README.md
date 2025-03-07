@@ -20,25 +20,27 @@
 note: YYYY means the game's year, Name mean's the game's name in Pascal case
 
 1. add the game to the `Game` enum in `app/lib/games.ts`, like `NameYYYY = "YYYY"`
-2. define `GameDataYYYY`, like `GameData2025`, with all the functions from the `GameData` interface
-3. implement the game data functions
-4. add a new `GameInfo` to the `games` array, like the `Reefscape2025` one:
+2. add a new file called `app/lib/games/YYYY.ts`
+3. define `GameDataYYYY` in the file, like `GameData2025`, with all the functions from the `GameData` interface
+4. implement the game data functions
+5. add your game to `getData()` in `app/lib/context.ts`
+6. add a new `GameInfo` to the `games` array in `app/lib/games.ts`:
 ```typescript
-    [Game.Reefscape2025]: {
-        name: "Reefscape (2025)",
+    [Game.NameYYYY]: {
+        name: "Name (YYYY)",
         createData() {
-            return new GameData2025();
+            return new GameDataYYYY();
         },
         links: [
-            { name: 'Auto', href: '/2025/auto' },
-            { name: 'Teleop', href: '/2025/teleop' },
-            { name: 'Endgame', href: '/2025/endgame' }
+            { name: 'Auto', href: '/YYYY/auto' },
+            { name: 'Teleop', href: '/YYYY/teleop' },
+            { name: 'Endgame', href: '/YYYY/endgame' }
         ],
-        field: { normal: '/2025/field.png', flipped: '/2025/field_flipped.png' }
+        field: { normal: '/YYYY/field.png', flipped: '/YYYY/field_flipped.png' }
     },
 ```
-5. make a `YYYY/` folder in `app/`, and make folders for the pages (usually auto, teleop, and endgame)
-6. make a `YYYY/` folder in `public/`, and add the field images (normal and flipped, as referenced in `GameInfo`)
-7. ensure it all works by submitting a report with the network tab open in your developer tools, make sure all your
-   fields are in the JSON body of the request to `<backend>/warp7api/scouting/add_report`
-8. follow the [backend instructions](https://github.com/Team865/scouting-backend-865)
+7. make a `YYYY/` folder in `app/`, and make folders for the pages (usually auto, teleop, and endgame)
+8. make a `YYYY/` folder in `public/`, and add the field images (normal and flipped, as referenced in `GameInfo`)
+9. change the default game in `app/lib/context.ts` to your new one
+10. ensure it all works by submitting a report and looking at the JSON in the browser developer console
+11.  follow the [backend instructions](https://github.com/Team865/scouting-backend-865)

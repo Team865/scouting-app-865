@@ -1,6 +1,8 @@
-import { Game, GameData, GameData2025, games } from "./games";
+import { Game, GameData, games } from "./games";
+import { GameData2025 } from "./games/2025";
 import { AlliancePosition } from "./alliance";
 import { createContext } from "react";
+import { GameData2024 } from "./games/2024";
 
 export class AppData {
     // settings
@@ -25,6 +27,8 @@ export class AppData {
 
     public getData() {
         switch (this.game) {
+            case Game.Crescendo2024:
+                return this.gameData as GameData2024;
             case Game.Reefscape2025:
                 return this.gameData as GameData2025;
         }
