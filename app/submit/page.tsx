@@ -90,7 +90,7 @@ export default function SubmitPage() {
         <Dialog open={isOpen} onClose={() => setIsOpen(false)} className="relative z-50">
           <div className="fixed inset-0 flex w-screen items-center justify-center p-4">
             <DialogPanel className="max-w-lg space-y-4 border border-gray-900 bg-[--background] p-4">
-              <DialogTitle className="text-lg font-bold">Report{(error || backendError) ? " not" : ""} sent</DialogTitle>
+              <DialogTitle className="text-lg font-bold">Report{(error || backendError) ? " not" : ""} {(body != undefined && status != undefined) ? "sent" : "sending"}</DialogTitle>
               <Description>
                 {error ?
                   (<p>One or more required fields is empty</p>) :
