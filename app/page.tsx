@@ -67,8 +67,8 @@ export default function HomePage() {
 				<Checkbox value={context.flipField} onChange={value => { context.flipField = value; setFlipped(context.flipField) }}>Flip field</Checkbox>
 				<Image
 					src={context.flipField ? games[context.game].field.flipped : games[context.game].field.normal}
-					width={0}
-					height={0}
+					width={600}
+					height={315}
 					style={{ width: "90%", height: "auto" }}
 					alt="field image" />
 			</div>
