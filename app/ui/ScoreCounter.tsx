@@ -25,7 +25,8 @@ export default function ScoreCounter(props: Props) {
     };
     const onChange = (change: number) => {
         if (props.onChange != undefined) {
-            props.onChange(change); setValue(clamp(value + change));
+			const newValue = clamp(value + change);
+            props.onChange(newValue); setValue(newValue);
         }
     };
 

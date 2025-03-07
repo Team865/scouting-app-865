@@ -25,15 +25,6 @@ export class AppData {
         return ""; //return `{\n\tgame: ${games[this.game].name}\n\tscouterName: ${this.scouterName}\n\tteam: ${this.team}\n\tmatch: ${this.match}\n\tposition: ${this.position}}`
     }
 
-    public getData() {
-        switch (this.game) {
-            case Game.Crescendo2024:
-                return this.gameData as GameData2024;
-            case Game.Reefscape2025:
-                return this.gameData as GameData2025;
-        }
-    }
-
     public clear() {
         this.position = AlliancePosition.None;
         this.team = "";
@@ -69,7 +60,7 @@ export class AppData {
             this.team.length > 0 &&
             this.match.length > 0 &&
             this.position != AlliancePosition.None &&
-            this.gameData?.check();
+            this.gameData.check();
     }
 };
 

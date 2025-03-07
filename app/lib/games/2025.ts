@@ -76,12 +76,12 @@ export class GameData2025 implements GameData {
                 "park": this.park,
                 "shallow": this.shallow,
                 "deep": this.deep,
-                "time_climbed_at": Number.parseInt(this.timeClimbedAt)
+                "time_climbed_at": (this.timeClimbedAt.length > 0) ? Number.parseInt(this.timeClimbedAt) : 0
             }
         }
     }
 
     check(): boolean {
-        return this.timeClimbedAt.length > 0;
+        return true;
     }
 }

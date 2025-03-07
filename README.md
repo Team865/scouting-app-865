@@ -23,8 +23,7 @@ note: YYYY means the game's year, Name mean's the game's name in Pascal case (i.
 2. add a new file called `app/lib/games/YYYY.ts`
 3. define `GameDataYYYY` in the file, like `GameData2025`, with all the functions from the `GameData` interface
 4. implement the game data functions
-5. add your game to `getData()` in `app/lib/context.ts`
-6. add a new `GameInfo` to the `games` array in `app/lib/games.ts`:
+5. add a new `GameInfo` to the `games` array in `app/lib/games.ts`:
 ```typescript
     [Game.NameYYYY]: {
         name: "Name (YYYY)",
@@ -39,15 +38,15 @@ note: YYYY means the game's year, Name mean's the game's name in Pascal case (i.
         field: { normal: '/YYYY/field.png', flipped: '/YYYY/field_flipped.png' }
     },
 ```
-7. make a `YYYY/` folder in `app/`, and make folders for the pages (usually auto, teleop, and endgame)
-8. make a `YYYY/` folder in `public/`, and add the field images (normal and flipped, as referenced in `GameInfo`)
-9. change the default game in `app/lib/context.ts` to your new one
-10. ensure it all works by submitting a report and looking at the JSON in the browser developer console
-11.  follow the [backend instructions](https://github.com/Team865/scouting-backend-865)
+6. make a `YYYY/` folder in `app/`, and make folders for the pages (usually auto, teleop, and endgame)
+7. make a `YYYY/` folder in `public/`, and add the field images (normal and flipped, as referenced in `GameInfo`)
+8. change the default game in `app/lib/context.ts` to your new one
+9. ensure it all works by submitting a report and looking at the JSON in the browser developer console
+10.  follow the [backend instructions](https://github.com/Team865/scouting-backend-865)
 
 ## Setting up your own version
 
 1. modify `app/lib/backend.ts` with your backend (I should probably change this to be based on the environment at build time).
-2. remove the easter egg images in `public/` and optionally add your own (update `images` in `app/submit/page.tsx` if you do)
+2. remove the easter egg images in `public/` or add your own, and update/remove `images` in `app/submit/page.tsx`
 3. [set up the backend](https://github.com/Team865/scouting-backend-865)
 4. set up nginx or something, the backend doesn't work with CORS for some reason, so you want them on the same domain.

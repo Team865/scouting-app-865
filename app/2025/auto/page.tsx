@@ -1,12 +1,14 @@
 'use client'
 
 import { AppContext } from "@/app/lib/context";
+import { GameData2025 } from "@/app/lib/games/2025";
 import Checkbox from "@/app/ui/Checkbox";
 import ScoreCounter from "@/app/ui/ScoreCounter";
 import { useContext } from "react";
 
 export default function AutoPage() {
   const context = useContext(AppContext);
+  const data = context.gameData as GameData2025;
 
   return (
     <div className="flex flex-col justify-center items-center">
@@ -15,16 +17,16 @@ export default function AutoPage() {
       </div>
       <div className="flex flex-col m-4 w-full items-center">
         <div className="flex flex-row">
-          <ScoreCounter className="m-4" initialValue={context.getData().autoCoralLvl1} onChange={change => context.getData().autoCoralLvl1 += change}>Level 1 Coral</ScoreCounter>
-          <ScoreCounter className="m-4" initialValue={context.getData().autoCoralLvl2} onChange={change => context.getData().autoCoralLvl2 += change}>Level 2 Coral</ScoreCounter>
+          <ScoreCounter className="m-4" initialValue={data.autoCoralLvl1} onChange={value => data.autoCoralLvl1 = value}>Level 1 Coral</ScoreCounter>
+          <ScoreCounter className="m-4" initialValue={data.autoCoralLvl2} onChange={value => data.autoCoralLvl2 = value}>Level 2 Coral</ScoreCounter>
         </div>
         <div className="flex flex-row">
-          <ScoreCounter className="m-4" initialValue={context.getData().autoCoralLvl3} onChange={change => context.getData().autoCoralLvl3 += change}>Level 3 Coral</ScoreCounter>
-          <ScoreCounter className="m-4" initialValue={context.getData().autoCoralLvl4} onChange={change => context.getData().autoCoralLvl4 += change}>Level 4 Coral</ScoreCounter>
+          <ScoreCounter className="m-4" initialValue={data.autoCoralLvl3} onChange={value => data.autoCoralLvl3 = value}>Level 3 Coral</ScoreCounter>
+          <ScoreCounter className="m-4" initialValue={data.autoCoralLvl4} onChange={value => data.autoCoralLvl4 = value}>Level 4 Coral</ScoreCounter>
         </div>
-        <ScoreCounter className="m-4" initialValue={context.getData().autoProcessor} onChange={change => context.getData().autoProcessor += change}>Processor</ScoreCounter>
-        <ScoreCounter className="m-4" initialValue={context.getData().autoBarge} onChange={change => context.getData().autoBarge += change}>Barge</ScoreCounter>
-        <Checkbox className="m-4" value={context.getData().autoMobility} onChange={checked => context.getData().autoMobility = checked}>Mobility</Checkbox>
+        <ScoreCounter className="m-4" initialValue={data.autoProcessor} onChange={value => data.autoProcessor = value}>Processor</ScoreCounter>
+        <ScoreCounter className="m-4" initialValue={data.autoBarge} onChange={value => data.autoBarge = value}>Barge</ScoreCounter>
+        <Checkbox className="m-4" value={data.autoMobility} onChange={checked => data.autoMobility = checked}>Mobility</Checkbox>
       </div>
     </div>
   );
