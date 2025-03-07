@@ -17,7 +17,7 @@
 
 ## Adding new games
 
-note: YYYY means the game's year, Name mean's the game's name in Pascal case
+note: YYYY means the game's year, Name mean's the game's name in Pascal case (i.e. Name = Reefscape, YYYY = 2025)
 
 1. add the game to the `Game` enum in `app/lib/games.ts`, like `NameYYYY = "YYYY"`
 2. add a new file called `app/lib/games/YYYY.ts`
@@ -44,3 +44,10 @@ note: YYYY means the game's year, Name mean's the game's name in Pascal case
 9. change the default game in `app/lib/context.ts` to your new one
 10. ensure it all works by submitting a report and looking at the JSON in the browser developer console
 11.  follow the [backend instructions](https://github.com/Team865/scouting-backend-865)
+
+## Setting up your own version
+
+1. modify `app/lib/backend.ts` with your backend (I should probably change this to be based on the environment at build time).
+2. remove the easter egg images in `public/` and optionally add your own (update `images` in `app/submit/page.tsx` if you do)
+3. [set up the backend](https://github.com/Team865/scouting-backend-865)
+4. set up nginx or something, the backend doesn't work with CORS for some reason, so you want them on the same domain.
