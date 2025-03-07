@@ -1,15 +1,12 @@
 'use client'
 
-import { /*Game,*/ Game, games } from "../lib/games";
+import { games } from "../lib/games";
 
 //import Dropdown from "./Dropdown";
 import Link from 'next/link';
 //import { MenuItem } from "@headlessui/react";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { AppContext } from "../lib/context";
-import { MenuItem } from "@headlessui/react";
-import Dropdown from "./Dropdown";
-import { usePathname } from "next/navigation";
 
 export default function NavBar() {
     const context = useContext(AppContext);

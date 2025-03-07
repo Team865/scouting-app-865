@@ -1,8 +1,6 @@
 import { Game, GameData, games } from "./games";
-import { GameData2025 } from "./games/2025";
 import { AlliancePosition } from "./alliance";
 import { createContext } from "react";
-import { GameData2024 } from "./games/2024";
 
 export class AppData {
     // settings
