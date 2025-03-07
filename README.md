@@ -19,7 +19,7 @@
 
 note: YYYY means the game's year, Name mean's the game's name in Pascal case (i.e. Name = Reefscape, YYYY = 2025)
 
-1. add the game to the `Game` enum in `app/lib/games.ts`, like `NameYYYY = "YYYY"`
+1. add the game to the `Game` enum in `app/lib/games.ts`, like `NameYYYY = "NameYYYY"`
 2. add a new file called `app/lib/games/YYYY.ts`
 3. define `GameDataYYYY` in the file, like `GameData2025`, with all the functions from the `GameData` interface
 4. implement the game data functions
