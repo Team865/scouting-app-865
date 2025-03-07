@@ -44,6 +44,7 @@ export default function RootLayout({
           {children}
           {usePathname() == "/" ? (
             <div className="flex flex-col m-4 items-center">
+              {/* really should be in /page.tsx, but I want it in this div */}
               <Checkbox className="m-2" value={context.isTest} onChange={value => context.isTest = value}>Test mode</Checkbox>
 
               {/* game chooser dropdown, styled to blend in with other buttons. only enabled on home page.
