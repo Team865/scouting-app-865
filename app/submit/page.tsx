@@ -67,7 +67,7 @@ export default function SubmitPage() {
       }).then((text?: string) => {
         // get the body
         setBody(text);
-      }).catch((err) => {
+      }).catch(() => {
         setBackendError(true);
       });
     }
