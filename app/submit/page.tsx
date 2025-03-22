@@ -77,7 +77,9 @@ export default function SubmitPage() {
 
 					// clear if report was successful
 					if (status != undefined && status?.code == 200) {
-						//context.clear();
+                        if (!context.isTest) {
+    						context.clear();
+                        }
 						setCommentary(context.commentary);
 					} else {
 						setBackendError(true);
