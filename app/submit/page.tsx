@@ -104,10 +104,10 @@ export default function SubmitPage() {
 			<div className="flex flex-col m-4 w-full justify-center">
 				<p className="text-lg text-center">Submit</p>
 			</div>
-			<div className="flex flex-col m-4 w-min justify-center">
+			<div className="flex flex-col m-4 w-[75%] justify-center">
 				<TextField
 					inputName="submit-commentary"
-					className="m-2"
+					className="m-2 w-full"
 					defaultValue={commentary}
 					onChange={(e) => {
 						context.commentary = e.target.value;

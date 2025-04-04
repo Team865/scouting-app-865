@@ -17,7 +17,7 @@ type Props = {
 
 export default function TextField(props: Props) {
     return (
-        <Field className={`flex flex-col justify-center w-min ${props.className}`}>
+        <Field className={`flex flex-col justify-center ${props.className}`}>
             <Label className={`text-center ${props.labelClassName}`}>{props.children}</Label>
             <Input name={props.inputName} type={props.type} value={props.value} defaultValue={props.defaultValue} className={`border-b-2 border-b-gray-500 bg-transparent ${props.inputClassName}`} onChange={props.onChange} />
         </Field>
