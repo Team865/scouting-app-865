@@ -4,7 +4,6 @@ import { sendReport } from "@/app/lib/backend";
 import { AppContext } from "@/app/lib/context";
 import Button from "@/app/ui/Button";
 import TextArea from "@/app/ui/TextArea";
-import TextField from "@/app/ui/TextField";
 import {
 	Description,
 	Dialog,
