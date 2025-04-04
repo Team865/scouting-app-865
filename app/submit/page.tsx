@@ -3,6 +3,7 @@
 import { sendReport } from "@/app/lib/backend";
 import { AppContext } from "@/app/lib/context";
 import Button from "@/app/ui/Button";
+import TextArea from "@/app/ui/TextArea";
 import TextField from "@/app/ui/TextField";
 import {
 	Description,
@@ -107,7 +108,7 @@ export default function SubmitPage() {
 				<p className="text-lg text-center">Submit</p>
 			</div>
 			<div className="flex flex-col m-4 w-[75%] justify-center">
-				<TextField
+				<TextArea
 					inputName="submit-commentary"
 					className="m-2 w-full"
 					defaultValue={commentary}
@@ -117,7 +118,7 @@ export default function SubmitPage() {
 					}}
 				>
 					Commentary
-				</TextField>
+				</TextArea>
 				<Button className="m-2" onClick={send}>
 					Submit
 				</Button>
